@@ -8,12 +8,11 @@ public class Main {
         LifeGame lg = new LifeGame();
         lg.printWorld();
         lg.createGrider(5, 5);
-        //
-        // System.out.println("\u001b[2J");
-        // lg.printWorld();
-        //
-        int counter = 0;
-        while (counter < 5) {
+        System.out.println("\u001b[2J");
+        lg.printWorld();
+
+        int count = 30;
+        for (int i = 0; i < count; i++) {
             // System.out.println("\u001b[2J");
             System.out.println("\n");
             lg.printWorld();
@@ -22,7 +21,6 @@ public class Main {
                 Thread.sleep(delay);
             } catch (InterruptedException e) {
             }
-            counter++;
         }
     }
 }
