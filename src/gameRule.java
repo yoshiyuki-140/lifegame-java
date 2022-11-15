@@ -48,34 +48,16 @@ class LifeGame {
             fy += world_size[1];
         }
 
-        if (world[(fy - 1) % this.world_size[1]][(fx - 1) % this.world_size[0]]) {
-            counter++;
+        for (int yi = fy - 1; yi <= fy + 1; yi++) {
+            for (int xi = fx - 1; xi <= fx + 1; xi++) {
+                if (world[(yi) % this.world_size[1]][(xi) % this.world_size[0]]) {
+                    if ((fx == xi) && (fy == yi)) {
+                        continue;
+                    }
+                    counter++;
+                }
+            }
         }
-        if (world[(fy - 1) % this.world_size[1]][(fx) % this.world_size[0]]) {
-            counter++;
-        }
-        if (world[(fy - 1) % this.world_size[1]][(fx + 1) % this.world_size[0]]) {
-            counter++;
-        }
-        if (world[(fy) % this.world_size[1]][(fx - 1) % this.world_size[0]]) {
-            counter++;
-        }
-        if (world[(fy) % this.world_size[1]][(fx) % this.world_size[0]]) {
-            counter++;
-        }
-        if (world[(fy) % this.world_size[1]][(fx + 1) % this.world_size[0]]) {
-            counter++;
-        }
-        if (world[(fy + 1) % this.world_size[1]][(fx - 1) % this.world_size[0]]) {
-            counter++;
-        }
-        if (world[(fy + 1) % this.world_size[1]][(fx) % this.world_size[0]]) {
-            counter++;
-        }
-        if (world[(fy + 1) % this.world_size[1]][(fx + 1) % this.world_size[0]]) {
-            counter++;
-        }
-        System.out.print(counter);
         return counter;
     }
 
@@ -83,7 +65,6 @@ class LifeGame {
         int count = howManyAliveCells(x, y);
         if (world[y][x]) {
             if (count == 2 || count == 3) {
-
                 return true;
             }
             return false;
