@@ -9,11 +9,39 @@ class LifeGame {
 
     LifeGame() {
         // default value of dimension.
-        Dimension = 10;
-        world_size = new int[2];
+        this.Dimension = 10;
+        this.world_size = new int[2];
+        this.world_size[0] = Dimension;
+        this.world_size[1] = Dimension;
         // """ ここほかに移したほうがいいかも
-        world_size[0] = 20;
-        world_size[1] = Dimension;
+        // """
+        world = new boolean[world_size[1]][world_size[0]];
+        tmpworld = new boolean[world_size[1]][world_size[0]];
+        this.worldInit(world);
+        this.worldInit(tmpworld);
+    }
+
+    LifeGame(int world_size[]) {
+        // default value of dimension.
+        this.Dimension = 10;
+        // ここの処理はif 分で引数world_size
+        this.world_size = new int[2];
+        this.world_size[0] = world_size[0];
+        this.world_size[1] = world_size[1];
+        // """ ここほかに移したほうがいいかも
+        // """
+        world = new boolean[world_size[1]][world_size[0]];
+        tmpworld = new boolean[world_size[1]][world_size[0]];
+        this.worldInit(world);
+        this.worldInit(tmpworld);
+    }
+
+    LifeGame(int width,int height) {
+        // default value of dimension.
+        this.world_size = new int[2];
+        this.world_size[0] = width;
+        this.world_size[1] = height;
+        // """ ここほかに移したほうがいいかも
         // """
         world = new boolean[world_size[1]][world_size[0]];
         tmpworld = new boolean[world_size[1]][world_size[0]];
